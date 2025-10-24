@@ -1,0 +1,17 @@
+{
+    "./example\\CatchAndDoNothing.py": {
+        "CatchAndDoNothing": {
+            "count": 8,
+            "lines": [
+                4,
+                9,
+                14,
+                19,
+                24,
+                29,
+                34,
+                43
+            ]
+        }
+    }
+}
