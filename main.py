@@ -16,7 +16,7 @@ from services.OverCatch import detect_over_catch
 from services.OverCatchAndAbort import detect_over_catch_and_abort
 from services.ThrowInsideFinally import detect_throw_inside_finally
 from services.IgnoringInterruptedException import detect_ignoring_interrupted_exception
-from utils.util import divide_list_into_batches
+from utils.util import divide_dict_into_batches
 import json
 from collections import defaultdict
 
@@ -41,7 +41,7 @@ anti_pattern_detectors = {
     "IgnoringInterruptedException": detect_ignoring_interrupted_exception
 }
 
-antipattern_batch = divide_list_into_batches(data_list=anti_pattern_detectors)
+antipattern_batch = divide_dict_into_batches(data_dict=anti_pattern_detectors)
 
 def analyze_file(filepath):
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -57,21 +57,16 @@ def analyze_file(filepath):
                 results[name]["lines"].append(getattr(node, 'lineno', 'unknown'))
     return results
 
-def analyze_project(root_dir,file_name_list):
+def analyze_project(root_dir):
     project_report = {}
     for root, _, files in os.walk(root_dir):
-        # for file in files:
-        #     if file.endswith(".py"):
-        #         path = os.path.join(root, file)
-        #         patterns = analyze_file(path)
-        #         if patterns:
-        #             project_report[path] = patterns
-        for file in file_name_list:
-            # if file.endswith(".py"):
-            path = os.path.join(root, file+".py")
-            patterns = analyze_file(path)
-            if patterns:
-                project_report[path] = patterns
+        for file in files:
+            if file.endswith(".py"):
+                path = os.path.join(root, file)
+                patterns = analyze_file(path)
+                if patterns:
+                    project_report[path] = patterns
+       
     return project_report
 
 # -------------------------
@@ -79,7 +74,7 @@ def analyze_project(root_dir,file_name_list):
 # -------------------------
 if __name__ == "__main__":
     project_path = "./example"  # replace with your project path
-    report = analyze_project(project_path,antipattern_batch[0])
+    report = analyze_project(project_path)
     
     # Print to console
     for file, patterns in report.items():
