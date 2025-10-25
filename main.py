@@ -19,6 +19,7 @@ from services.IgnoringInterruptedException import detect_ignoring_interrupted_ex
 from utils.util import divide_dict_into_batches
 import json
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 
 
 def greeting():
@@ -43,6 +44,12 @@ anti_pattern_detectors = {
 
 antipattern_batch = divide_dict_into_batches(data_dict=anti_pattern_detectors)
 
+def analyzer_worker(detector,results,name,node):
+    if detector(node):
+                results[name]["count"] += 1
+                results[name]["lines"].append(getattr(node, 'lineno', 'unknown'))
+
+
 def analyze_file(filepath):
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
         try:
@@ -51,10 +58,13 @@ def analyze_file(filepath):
             return {}
     results = defaultdict(lambda: {"count": 0, "lines": []})
     for node in ast.walk(tree):
-        for name, detector in anti_pattern_detectors.items():
-            if detector(node):
-                results[name]["count"] += 1
-                results[name]["lines"].append(getattr(node, 'lineno', 'unknown'))
+        with ThreadPoolExecutor(12) as executor:
+            for name, detector in anti_pattern_detectors.items():
+                analyzer_worker(detector=detector,results=results, name = name,node = node)
+            # if detector(node):
+            #     results[name]["count"] += 1
+            #     results[name]["lines"].append(getattr(node, 'lineno', 'unknown'))
+                
     return results
 
 def analyze_project(root_dir):

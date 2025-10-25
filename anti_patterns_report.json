@@ -1,16 +1,204 @@
 {
     "./example\\CatchAndDoNothing.py": {
         "CatchAndDoNothing": {
-            "count": 8,
+            "count": 1,
             "lines": [
-                4,
-                9,
-                14,
-                19,
-                24,
-                29,
-                34,
-                43
+                4
+            ]
+        }
+    },
+    "./example\\CatchAndReturnNull.py": {
+        "CatchAndReturnNone": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\CatchGeneric.py": {
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\DestructiveWrapping.py": {
+        "DestructiveWrapping": {
+            "count": 1,
+            "lines": [
+                5
+            ]
+        }
+    },
+    "./example\\DummyHandler.py": {
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\IgnoringInterruptedException.py": {
+        "CatchAndDoNothing": {
+            "count": 1,
+            "lines": [
+                5
+            ]
+        },
+        "IgnoringInterruptedException": {
+            "count": 1,
+            "lines": [
+                5
+            ]
+        }
+    },
+    "./example\\IncompleteImplementation.py": {
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DestructiveWrapping": {
+            "count": 1,
+            "lines": [
+                5
+            ]
+        }
+    },
+    "./example\\LogAndReturnNull.py": {
+        "CatchAndReturnNone": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "LogAndReturnNone": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\LogAndThrow.py": {
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "LogAndThrow": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\MultipleLineLog.py": {
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "MultipleLineLog": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\NestedTryExceptionExample.py": {
+        "NestedTryExceptionExample": {
+            "count": 1,
+            "lines": [
+                2
+            ]
+        },
+        "CatchGeneric": {
+            "count": 1,
+            "lines": [
+                7
+            ]
+        },
+        "DummyHandler": {
+            "count": 2,
+            "lines": [
+                7,
+                5
+            ]
+        }
+    },
+    "./example\\OverCatch.py": {
+        "DummyHandler": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        },
+        "OverCatch": {
+            "count": 1,
+            "lines": [
+                4
+            ]
+        }
+    },
+    "./example\\OverCatchAndAbort.py": {
+        "OverCatch": {
+            "count": 1,
+            "lines": [
+                5
+            ]
+        }
+    },
+    "./example\\ThrowInsideFinally.py": {
+        "ThrowInsideFinally": {
+            "count": 1,
+            "lines": [
+                2
+            ]
+        },
+        "DestructiveWrapping": {
+            "count": 1,
+            "lines": [
+                5
             ]
         }
     }
