@@ -27,5 +27,5 @@ def get_repo_metrics(repo_path: str) -> dict:
 
 
 if __name__ == "__main__":
-    path = "./example_repo"  # change this to your repo path
+    path = "./example"  # change this to your repo path
     print(get_repo_metrics(path))
